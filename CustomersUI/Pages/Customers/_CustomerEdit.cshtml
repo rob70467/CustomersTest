@@ -1,0 +1,31 @@
+﻿@model CommonModels.Customer
+
+<div class="modal fade" id="customerModal" tabindex="-1" aria-labelledby="customerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="customerModalLabel">@Model.Id == 0 ? "Add New Customer" : "Edit Customer"</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="customerForm">
+                    <input type="hidden" id="customerId" name="Id" value="@Model.Id" />
+                    <div class="mb-3">
+                        <label for="customerName" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="customerName" name="Name" value="@Model.Name" />
+                        <div class="text-danger" id="nameError" style="display:none;">Name is required.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="customerReference" class="form-label">Reference</label>
+                        <input type="text" class="form-control" id="customerReference" name="Reference" value="@Model.Reference" />
+                        <div class="text-danger" id="referenceError" style="display:none;">Reference is required.</div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="saveCustomerDetails()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
